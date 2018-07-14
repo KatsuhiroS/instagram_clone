@@ -1,0 +1,37 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.input_form {
+  width: 300px;
+  display: inline-block;
+}
+
+.input_form_title {
+  width: 250px;
+  display: inline-block;
+  text-align: left;
+}
+
+.input_form_row input {
+  width: 250px;
+  display: inline-block;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.input_submit {
+  margin-top: 20px;
+}
+
+.small_title {
+  font-weight: bold;
+}
+
+.mypage_user {
+  margin-top: 40px;
+}
+
+.mypage_email {
+  margin-top: 40px;
+}

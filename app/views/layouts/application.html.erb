@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Instagram Clone</title>
+    <%= csrf_meta_tags %>
+    <meta charset="UTF-8">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+    <% if logged_in? %>
+      <ul>
+        <li><%= link_to "TOP", root_path %></li>
+        <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+        <li><%= link_to "お気に入り", favorites_path %></li>
+        <li><%= link_to "投稿一覧", pictures_path %></li>
+        <li><%= link_to "新規投稿", new_picture_path %></li>
+        <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+      </ul>
+    <% else %>
+      <ul>
+        <li><%= link_to "Sign up", new_user_path %></li>
+        <li><%= link_to "Login", new_session_path %></li>
+      </ul>
+    <% end %>
+    </header>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+    <%= yield %>
+    <footer>
+      <p>Instagram Clone株式会社</p>
+      <p>© 2015-2016 Copyright Instagram Clone Corp.</p>
+    </footer>
+  </body>
+</html>

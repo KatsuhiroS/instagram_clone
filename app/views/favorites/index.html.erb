@@ -1,0 +1,7 @@
+<h1>お気に入り一覧</h1>
+<% if @favorites.present? %>
+  <% @favorites.each do |favorite| %>
+    <%= link_to image_tag(favorite.picture.image, class: "link_image"), picture_path(favorite.picture.id) %>
+    
+  <% end %>
+<% end %>

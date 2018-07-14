@@ -1,0 +1,19 @@
+<p class = "show_image"><%= image_tag @picture.image %></p>
+<h2>投稿者: <%= @picture.user.name %></h2>
+<h3>Content: <%= @picture.content %></h3>
+
+<% if @picture.user_id == current_user.id %>
+  <div>
+    <%= link_to "編集", edit_picture_path(@picture.id), class: "btn btn-primary"%>
+    <%= link_to '削除', picture_path(@picture.id), method: :delete, class: "btn btn-danger" %>
+  </div>
+<% end %>
+<div class = "favorite_button">
+  <% unless @picture.user_id == current_user.id %>
+    <% if @favorite.present? %>
+      <%= link_to 'お気に入り解除', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+    <% else %>
+      <%= link_to 'お気に入り登録', favorites_path(picture_id: @picture.id), method: :post, class: 'btn btn-primary' %>
+    <% end %>
+  <% end %>
+</div>
